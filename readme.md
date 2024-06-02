@@ -43,3 +43,19 @@ If you use private repo, consult `https://go.dev/doc/faq#git_https` where you ca
 ## Upgrading module
 
 To release a new version of your module, you just need to create a new git tag.
+
+- edit your code
+- git add & git commit your code
+- git push
+- git tag <new version>
+- git push origin <new version>
+
+## Upgrading dependency
+
+After the module is upgraded, it is time to update the dependency from the app side.  
+It is as easy as editing the tag version inside the go.mod for that dependency, then execute `go get`
+
+## Major upgrade
+
+Major upgrade is usually happen because there's a change in our code that's causing it not backward compatible.  
+If this cannot be avoided, the best strategy is to change the module name (for example by adding `/v2` as suffix).
