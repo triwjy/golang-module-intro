@@ -57,5 +57,7 @@ It is as easy as editing the tag version inside the go.mod for that dependency, 
 
 ## Major upgrade
 
-Major upgrade is usually happen because there's a change in our code that's causing it not backward compatible.  
-If this cannot be avoided, the best strategy is to change the module name (for example by adding `/v2` as suffix).
+Major upgrade is usually happen because there's a change in our code that's causing it not backward compatible (for example due to security concern).  
+If this cannot be avoided, the best strategy is to change the module name (for example by adding `/v2` as suffix).  
+You also need to change the tag when pushing into remote repo.  
+Now, every app that wants to use the new major version, it needs to execute the `go get <new major version name>`. Don't forget to update the import statement to use the new name as well.
